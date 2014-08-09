@@ -1,0 +1,8 @@
+{
+  "generator-xd-angular": {
+    "projectName": "sample-store-generated",
+    "vendorPrefix": "wc",
+    "repoUrl": "git@github.com:brainsail/sample-store-generated.git",
+    "webserver": "gulp-webserver"
+  }
+}
