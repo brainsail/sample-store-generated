@@ -1,0 +1,2 @@
+angular.module("wc.tmpls", []).run(["$templateCache", function($templateCache) {$templateCache.put("/views/product-detail/product-detail.html","\n<div class=\"productDetail\">\n  <h3>{{vm.name}}</h3>\n</div>");
+$templateCache.put("/views/product-list/product-list.html","\n<div class=\"productList\">\n  <h3>{{vm.name}} </h3>\n</div>");}]);
