@@ -8,8 +8,8 @@
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $stateProvider
-      .state('productList', { url: '/product-list', templateUrl: '/views/product-list/product-list.html', controller: 'ProductListCtrl'})
-      .state('productDetail', { url: '/product-detail', templateUrl: '/views/product-detail/product-detail.html', controller: 'ProductDetailCtrl'});
+      .state('productList', { url: '/product-list', templateUrl: '/views/product-list/product-list.html', controller: 'ProductListCtrl', controllerAs: 'vm'})
+      .state('productDetail', { url: '/product-detail', templateUrl: '/views/product-detail/product-detail.html', controller: 'ProductDetailCtrl', controllerAs: 'vm'});
 
     $urlRouterProvider.otherwise('/product-list');
   }
@@ -24,7 +24,8 @@
     'ui.router',
     'wc.tmpls',
     'wc.views.ProductList',
-    'wc.views.ProductDetail'
+    'wc.views.ProductDetail',
+    'wc.services.ProductResourceMock'
   ])
     .config(config)
 
