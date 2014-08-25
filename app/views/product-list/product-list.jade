@@ -1,4 +1,36 @@
 div.productList
   h3 {{vm.name}}
   ul
-    li(ng-repeat="product in vm.products") {{product.description}}
+    li(ng-repeat="product in vm.products") {{product.name}}
+
+<!--Create Product-->
+div()
+  form.create-form(role="form", ng-submit="vm.addProduct(product)" novalidate)
+    div.form-group
+      h3(ng-model="product.id") {{product.id}}
+    div.form-group
+      label(for="name") Name Preview: {{product.name}}
+      input.form-control(ng-model="product.name")
+    div.form-group
+      label(for="price") Price Preview: {{product.price}}
+      input.form-control(ng-model="product.price")
+    div.form-group
+      label(for="description") Description Preview: {{product.description}}
+      input.form-control(ng-model="product.description")
+    div.form-group
+      label(for="images") Image Urls
+      input.form-control(ng-model="product.images")
+    div.input-group
+      label(for="canPurchase") Available For Purchase?  Preview: {{product.canPurchase}}
+      span.input-group(data-toggle="buttons-radio")
+        input(type="radio", value="true", ng-model="product.canPurchase")
+        label Yes 
+        br
+        input(type="radio", value="false", ng-model="product.canPurchase")
+        label No 
+
+    div.form-group
+      label(for="soldOut")
+      input.form-control(ng-model="product.soldOut")
+    button.btn.btn-info.btn-lg(type="submit" ng-submit="addProduct") Add Product
+    button.btn.btn-default.btn-lg.pull-right(type="button" ng-click="cancelEditing()") Cancel

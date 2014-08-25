@@ -3,6 +3,7 @@
 
   var products =  [
   {
+    id: 1,
     name: 'Nike Running Shoe',
     price: 2.95,
     description: 'Various different things about this shoe.',
@@ -32,6 +33,7 @@
 
   },
   {
+    id: 2,
     name: 'Reebok Ballerina Pump',
     price: 10.95,
     description: 'Various different things about this shoe.',
@@ -60,6 +62,7 @@
     ]
   },
   {
+    id: 3,
     name: 'Fila Skele-toes Flip Flop',
     price: 12.95,
     description: 'Various different things about this shoe.',

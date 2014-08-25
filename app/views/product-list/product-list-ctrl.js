@@ -13,6 +13,16 @@
         $log.error(err);
       }
     );
+    vm.addProduct = function(product) {
+      ProductResource.add(product).then(
+        function(resp) {
+          vm.products.push(resp.data);
+        },
+        function(err){
+          $log.error(err);
+        }
+      );
+    };
   }
 
   angular.module('wc.views.ProductList', ['wc.services.ProductResource'])

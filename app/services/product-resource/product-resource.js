@@ -1,5 +1,11 @@
 (function () {
 
+  function startCreating() {
+    $scope.isCreating = true;
+    $scope.isEditing = false;
+    resetCreateForm();
+  }
+
   /* @ngInject */
   function ProductResource($http){
     var URL = '/api/v1/products';
@@ -7,8 +13,8 @@
       return $http.get(URL);
     };
 
-    function addProduct(){
-
+    function addProduct(product){
+      return $http.post(URL, product);
     };
 
     function removeProduct(){
