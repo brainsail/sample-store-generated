@@ -1,4 +1,4 @@
-/*globals inject, beforeEach, describe, it, expect, module*/
+f/*globals inject, beforeEach, describe, it, expect, module*/
 describe('wc.views.ProductList', function () {
 
   beforeEach( module('wc.views.ProductList'));

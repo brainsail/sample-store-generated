@@ -25,7 +25,7 @@
     };
   }
 
-  angular.module('wc.views.ProductList', ['wc.services.ProductResource'])
+  angular.module('wc.views.ProductList', ['wc.services.ProductResource','ui.router'])
     .controller('ProductListCtrl', ProductListCtrl);
 
 })(); 

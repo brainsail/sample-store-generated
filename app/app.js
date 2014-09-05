@@ -9,7 +9,7 @@
 
     $stateProvider
       .state('productList', { url: '/product-list', templateUrl: '/views/product-list/product-list.html', controller: 'ProductListCtrl', controllerAs: 'vm'})
-      .state('productDetail', { url: '/product-detail', templateUrl: '/views/product-detail/product-detail.html', controller: 'ProductDetailCtrl', controllerAs: 'vm'});
+      .state('productDetail', { url: '/product-list/:id', templateUrl: '/views/product-detail/product-detail.html', controller: 'ProductDetailCtrl', controllerAs: 'vm'});
 
     $urlRouterProvider.otherwise('/product-list');
   }
