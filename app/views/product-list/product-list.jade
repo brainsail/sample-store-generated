@@ -2,4 +2,5 @@ div.productList
   h3 {{vm.name}}
   ul
     li(ng-repeat="product in vm.products")
-      a(ui-sref="productDetail({id: product.id})" us-sref-opts="product" ng-click="vm.selectProduct(product)"){{product.name}}
+        button.btn.btn-primary(ui-sref="productDetail({id: product.id})" ng-click="vm.selectProduct(product)") {{product.name}}
+  button.btn.btn-default(ng-click="vm.add(product)") Add a Product

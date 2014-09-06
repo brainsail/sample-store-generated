@@ -11,8 +11,6 @@
     }
   }
 
-
-
   angular.module('wc.views.ProductDetail', ['ui.router', 'wc.services.ProductModel'])
     .controller('ProductDetailCtrl', ProductDetailCtrl);
 

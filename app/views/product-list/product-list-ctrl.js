@@ -1,7 +1,7 @@
 (function () {
 
   /* @ngInject */
-  function ProductListCtrl($log, ProductResource, productModel) {
+  function ProductListCtrl($log, productModel) {
     var vm = this;
     vm.name = 'Products';
     vm.products = [];
@@ -12,24 +12,17 @@
       }
     );
 
-    vm.addProduct = function(product) {
-      ProductResource.add(product).then(
-        function(resp) {
-          vm.products.push(resp.data);
-        },
-        function(err){
-          $log.error(err);
-        }
-      );
-    };
-
     vm.selectProduct = function(product) {
       productModel.select(product);
     };
 
+    vm.addProduct = function(product) {
+      productModel.add(product);
+    }
+
   }
 
-  angular.module('wc.views.ProductList', ['wc.services.ProductResource','wc.services.ProductModel','ui.router'])
+  angular.module('wc.views.ProductList', ['wc.services.ProductModel','ui.router'])
     .controller('ProductListCtrl', ProductListCtrl);
 
 })(); 
