@@ -18,10 +18,11 @@
       );
     }
 
-    function addProduct () {
-      ProductResource.add(product).then(
+    function addProduct (product) {
+      return ProductResource.add(product).then(
         function(resp) {
-          vm.products.push(resp.data);
+          _products.push(resp.data);
+          return resp.data;
         },
         function(err){
           $log.error(err);
@@ -46,7 +47,7 @@
       }
     }
   }
-
+  
   angular.module('wc.services.ProductModel', ['wc.services.ProductResource'])
     .factory('productModel', ProductModel);
 

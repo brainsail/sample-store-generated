@@ -1,12 +1,42 @@
 (function () {
 
   /* @ngInject */
-  function ProductAddCtrl() {
+  function ProductAddCtrl(productModel, $state) {
     var vm = this;
-    vm.name = 'ProductAddCtrl';
+    vm.name = 'Add a New Product';
+    
+    vm.addProduct = function () {
+      productModel.add(vm.product).then(
+          function (newProduct) {
+            $state.go('productList');
+          }
+        );
+    };
+
+    vm.newProduct =   {
+      id: 0,
+      name: '',
+      price: 0,
+      description: '',
+      images: [],
+      canPurchase: false,
+      soldOut: false,
+      reviews: []
+    };
+    
+    var resetForm = function() {
+      vm.product = vm.newProduct;
+    };
+
+    vm.back = function () {
+      $state.go('productList');
+    };
+
+    resetForm();
+
   }
 
-  angular.module('wc.views.ProductAdd', [])
+  angular.module('wc.views.ProductAdd', ['ui.router', 'wc.services.ProductModel'])
     .controller('ProductAddCtrl', ProductAddCtrl);
 
 })();

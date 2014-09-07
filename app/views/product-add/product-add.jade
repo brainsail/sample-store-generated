@@ -5,30 +5,28 @@ div.productAdd
 div()
   form.create-form(role="form", ng-submit="vm.addProduct(product)" novalidate)
     div.form-group
-      h3(ng-model="product.id") {{product.id}}
+      label(for="name") Name Preview: {{vm.product.name}}
+      input.form-control(ng-model="vm.product.name")
     div.form-group
-      label(for="name") Name Preview: {{product.name}}
-      input.form-control(ng-model="product.name")
+      label(for="price") Price Preview: {{vm.product.price}}
+      input.form-control(ng-model="vm.product.price")
     div.form-group
-      label(for="price") Price Preview: {{product.price}}
-      input.form-control(ng-model="product.price")
-    div.form-group
-      label(for="description") Description Preview: {{product.description}}
-      input.form-control(ng-model="product.description")
+      label(for="description") Description Preview: {{vm.product.description}}
+      input.form-control(ng-model="vm.product.description")
     div.form-group
       label(for="images") Image Urls
-      input.form-control(ng-model="product.images")
+      input.form-control(ng-model="vm.product.images")
     div.input-group
-      label(for="canPurchase") Available For Purchase?  Preview: {{product.canPurchase}}
+      label(for="canPurchase") Available For Purchase?  Preview: {{vm.product.canPurchase}}
       span.input-group(data-toggle="buttons-radio")
-        input(type="radio", value="true", ng-model="product.canPurchase")
+        input(type="radio", ng-value="true", ng-model="vm.product.canPurchase")
         label Yes 
         br
-        input(type="radio", value="false", ng-model="product.canPurchase")
+        input(type="radio", ng-value="false", ng-model="vm.product.canPurchase")
         label No 
 
     div.form-group
       label(for="soldOut")
-      input.form-control(ng-model="product.soldOut")
-    button.btn.btn-info.btn-lg(type="submit" ng-submit="addProduct") Add Product
-    button.btn.btn-default.btn-lg.pull-right(type="button" ng-click="cancelEditing()") Cancel
+      input.form-control(ng-model="vm.product.soldOut")
+    button.btn.btn-info.btn-lg(type="submit" ng-submit="vm.addProduct()") Add Product
+    button.btn.btn-default.btn-lg.pull-right(type="button" ng-click="vm.back()") Cancel
