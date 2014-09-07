@@ -7,7 +7,7 @@
     
     vm.addProduct = function () {
       productModel.add(vm.product).then(
-          function (newProduct) {
+          function () {
             $state.go('productList');
           }
         );
@@ -24,7 +24,7 @@
       reviews: []
     };
     
-    var resetForm = function() {
+    var resetForm = function () {
       vm.product = vm.newProduct;
     };
 

@@ -39,6 +39,7 @@ var filesets = {
   templateCache: ['app/**/*.jade', '!app/index.jade', '!app/partials/**'],
   templates: ['app/index.jade', 'app/partials/*.jade'],
   js: ['app/**/*.js', '!app/**/*-spec.js'],
+  jsall: ['app/**/*.js', '!app/**/*-mock-data.js'],
   sass: ['app/**/*.scss'],
   dev: 'dev/**'
 };
@@ -106,6 +107,12 @@ gulp.task('serve:dev', ['dev:build'], function () {
       port: 3000,
       fallback: 'index.html'
     }));
+});
+
+gulp.task('lint', function () {
+  gulp.src(filesets.jsall)
+  .pipe(jshint('.jshintrc'))
+  .pipe(jshint.reporter('jshint-stylish'));
 });
 
 /**

@@ -1,4 +1,5 @@
 /*globals inject, beforeEach, describe, it, expect, module*/
+/*jshint expr: true*/
 describe('wc.services.ProductResource', function () {
   var mockProducts, $httpBackend;
 
@@ -24,22 +25,5 @@ describe('wc.services.ProductResource', function () {
       $httpBackend.flush();
     }));
   });
-
-  // describe('edit', function () {
-
-  //   beforeEach(inject(function() {
-      
-  //   }));
-
-  // });
-
-  // describe('add', function () {
-
-
-  // });
-
-  // describe('remove', function () {
-
-  // });
 
 });

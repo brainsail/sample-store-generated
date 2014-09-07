@@ -18,7 +18,7 @@
       );
     }
 
-    function addProduct (product) {
+    function addProduct(product) {
       return ProductResource.add(product).then(
         function(resp) {
           _products.push(resp.data);
@@ -34,20 +34,24 @@
       _selectedProduct = product;
     }
 
+    function getProducts() {
+        return _products;
+      }
+
+    function getSelectedProduct() {
+      return _selectedProduct;
+    }
+
     //Public API
     return {
-      getProducts: function () {
-        return _products;
-      },
+      getProducts: getProducts,
       refresh: refreshProducts,
       select: selectProduct,
       add: addProduct,
-      getSelectedProduct: function () {
-        return _selectedProduct;
-      }
-    }
+      getSelectedProduct: getSelectedProduct
+    };
   }
-  
+
   angular.module('wc.services.ProductModel', ['wc.services.ProductResource'])
     .factory('productModel', ProductModel);
 

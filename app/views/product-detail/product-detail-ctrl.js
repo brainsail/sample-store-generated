@@ -8,7 +8,7 @@
 
     vm.back = function () {
       $state.go('productList');
-    }
+    };
   }
 
   angular.module('wc.views.ProductDetail', ['ui.router', 'wc.services.ProductModel'])

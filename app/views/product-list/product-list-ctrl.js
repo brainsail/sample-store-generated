@@ -18,7 +18,7 @@
 
     vm.addProduct = function(product) {
       productModel.add(product);
-    }
+    };
 
   }
 

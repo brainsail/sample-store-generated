@@ -1,5 +1,5 @@
 {
-  "es3": true,
+  "es3": false,
   "bitwise": true,
   "camelcase": true,
   "curly": true,
