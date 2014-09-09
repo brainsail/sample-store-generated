@@ -27,7 +27,8 @@
     'wc.views.ProductList',
     'wc.views.ProductDetail',
     'wc.views.ProductAdd',
-    'wc.services.ProductResourceMock'
+    'wc.services.ProductResourceMock',
+    'wc.services.WcToastr'
   ])
     .config(config)
 

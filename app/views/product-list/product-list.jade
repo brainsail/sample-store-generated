@@ -3,4 +3,4 @@ div.productList
   ul
     li(ng-repeat="product in vm.products")
         button.btn.btn-primary(ui-sref="productDetail({id: product.id})" ng-click="vm.selectProduct(product)") {{product.name}}
-  button.btn.btn-default(ui-sref="productAdd({id: product.id})" ng-click="vm.add(product)") Add a Product
+  button.btn.btn-default(ng-click="vm.open()") Add a Product

@@ -1,14 +1,14 @@
 (function () {
 
   /* @ngInject */
-  function ProductAddCtrl(productModel, $state) {
+  function ProductAddCtrl($state, $modalInstance, productModel) {
     var vm = this;
     vm.name = 'Add a New Product';
     
     vm.addProduct = function () {
       productModel.add(vm.product).then(
           function () {
-            $state.go('productList');
+            $modalInstance.close();
           }
         );
     };
@@ -30,6 +30,10 @@
 
     vm.back = function () {
       $state.go('productList');
+    };
+
+    vm.cancel = function () {
+      $modalInstance.dismiss('cancel');
     };
 
     resetForm();
