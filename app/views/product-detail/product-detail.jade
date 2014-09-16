@@ -1,7 +1,11 @@
 div.productDetail
   h3 {{vm.name}}
-  ul
-    li {{vm.product.name}}
-    li {{vm.product.description}}
+  div.img-wrap
+    img(ng-src="{{vm.product.images[0]}}")
+  div
+    h4 {{vm.product.images[0]}}
+    h4 {{vm.product.name}} 
+    h4 {{vm.product.description}} 
+    h4 {{vm.product.price}}
     
   button.btn.btn-default(ng-click="vm.back()") Close

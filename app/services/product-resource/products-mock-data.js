@@ -12,7 +12,7 @@
       'images/nike-01-thumb.jpg'
     ],
     canPurchase: true,
-    soldOut: false,
+    numberOnHand: 3,
     reviews: [
       {
       stars: 5,
@@ -42,7 +42,7 @@
       'images/reebok-01-thumb.jpg'
     ],
     canPurchase: true,
-    soldOut: false,
+    numberOnHand: 3,
     reviews: [
       {
       stars: 5,
@@ -71,7 +71,7 @@
       'images/skele-toes-01-thumb.jpg'
     ],
     canPurchase: true,
-    soldOut: false,
+    numberOnHand: 3,
     reviews: [
       {
       stars: 5,

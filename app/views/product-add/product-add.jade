@@ -2,32 +2,36 @@ div.modal-header
   button.close(ng-click="vm.cancel()") Close
   h3.modal-title Add A Product  
     div.modal-body
-      div()
-        form.create-form(role="form", ng-submit="vm.addProduct(product)" novalidate)
-          div.form-group
-            label(for="name") Name Preview: {{vm.product.name}}
-            input.form-control(ng-model="vm.product.name")
-          div.form-group
-            label(for="price") Price Preview: {{vm.product.price}}
-            input.form-control(ng-model="vm.product.price")
-          div.form-group
-            label(for="description") Description Preview: {{vm.product.description}}
-            input.form-control(ng-model="vm.product.description")
-          div.form-group
-            label(for="images") Image Urls
-            input.form-control(ng-model="vm.product.images")
-          div.input-group
-            label(for="canPurchase") Available For Purchase?  Preview: {{vm.product.canPurchase}}
-            span.input-group(data-toggle="buttons-radio")
-              input(type="radio", ng-value="true", ng-model="vm.product.canPurchase")
-              label Yes 
-              br
-              input(type="radio", ng-value="false", ng-model="vm.product.canPurchase")
-              label No 
+      form.create-form(name="addProductForm" role="form", ng-submit="vm.addProduct(product)" novalidate)
+        div.form-group
+          h4 Product Name
+          input.form-control(placeholder="Name..." ng-model="vm.product.name" ng-minlength="3" required)
+        div.form-group
+          h4 Price
+          input.form-control(placeholder="$0.00" ng-pattern="^(([0-9]*)|(([0-9]*).([0-9]*)))$" ng-model="vm.product.price" required)
+        div.form-group
+          h4 Product Description
+          input.form-control(placeholder="Description..." ng-model="vm.product.description" required)
+        div.form-group
+          h4 Image URLs
+          input.form-control(placeholder="i.e. /images/thumb.jpg, etc." ng-model="vm.product.images")
+        div.input-group
+          div.btn-group.dropdown(is-open="status.isopen")
+            button.btn.btn-default.dropdown-toggle(type="button") Available for Purchase? &#9660
+            ul.dropdown-menu(role="menu")
+              li 
+                a Yes
+              li 
+                a No
 
-    div.form-group
-      label(for="soldOut")
-      input.form-control(ng-model="vm.product.soldOut")
+          //- h4 Is Available Now? 
+          //- select(ng-model="vm.product.canPurchase" required)
+          //-   option(ng-value="true") Yes
+          //-   option(ng-value="false") No
+        div.form-group
+          h4 Number On Hand
+          input.form-control(ng-model="vm.product.numberOnHand")
+
     div.modal-footer
-      button.btn.btn-info.btn-lg(type="submit" ng-click="vm.addProduct()") Add Product
+      button.btn.btn-info.btn-lg(ng-disabled="addProductForm.$invalid" type="submit" ng-click="vm.addProduct()") Add Product
       button.btn.btn-default.btn-lg.pull-right(type="button" ng-click="vm.cancel()") Cancel

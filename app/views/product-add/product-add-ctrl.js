@@ -19,8 +19,8 @@
       price: 0,
       description: '',
       images: [],
-      canPurchase: false,
-      soldOut: false,
+      canPurchase: 'false',
+      numberOnHand: 0,
       reviews: []
     };
     

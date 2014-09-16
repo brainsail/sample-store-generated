@@ -1,6 +1,8 @@
 div.productList
   h3 {{vm.name}}
-  ul
-    li(ng-repeat="product in vm.products")
-        button.btn.btn-primary(ui-sref="productDetail({id: product.id})" ng-click="vm.selectProduct(product)") {{product.name}}
+  div.list-group
+    div.list-group-item(ng-repeat="product in vm.products")
+      h4(ui-sref="productDetail({id: product.id})" ng-click="vm.selectProduct(product)") {{product.name}}
+        em.pull-right {{product.price | currency}}
+
   button.btn.btn-default(ng-click="vm.open()") Add a Product
