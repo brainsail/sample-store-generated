@@ -37,7 +37,7 @@
 
   }
 
-  angular.module('wc.views.ProductList', ['wc.services.ProductModel','ui.router','ui.bootstrap', 'wc.views.ProductAdd'])
+  angular.module('wc.views.ProductList', ['wc.services.ProductModel','ui.router','ui.bootstrap', 'wc.views.ProductAdd', 'wc.services.WcToastr'])
     .controller('ProductListCtrl', ProductListCtrl);
 
 })(); 

@@ -40,7 +40,7 @@
 
   }
 
-  angular.module('wc.views.ProductAdd', ['ui.router', 'wc.services.ProductModel'])
+  angular.module('wc.views.ProductAdd', ['ui.router', 'wc.services.ProductModel', 'ui.bootstrap'])
     .controller('ProductAddCtrl', ProductAddCtrl);
 
 })();

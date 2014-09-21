@@ -10,7 +10,7 @@ describe('wc.views.ProductDetail', function () {
 
 
   it('should have scope', function () {
-    expect(scope.vm.name).to.equal('ProductDetailCtrl');
+    expect(scope.vm.name).to.equal('Product Detail');
   });
 
 });

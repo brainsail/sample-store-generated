@@ -8,8 +8,8 @@
     price: 2.95,
     description: 'Various different things about this shoe.',
     images: [
-      'images/nike-01-full.jpg',
-      'images/nike-01-thumb.jpg'
+      '/assets/images/nike-01-full.jpg',
+      '/assets/images/nike-01-thumb.jpg'
     ],
     canPurchase: true,
     numberOnHand: 3,
@@ -38,8 +38,8 @@
     price: 10.95,
     description: 'Various different things about this shoe.',
     images: [
-      'images/reebok-01-full.jpg',
-      'images/reebok-01-thumb.jpg'
+      '/assets/images/reebok-01-full.jpg',
+      '/assets/images/reebok-01-thumb.jpg'
     ],
     canPurchase: true,
     numberOnHand: 3,
@@ -67,8 +67,8 @@
     price: 12.95,
     description: 'Various different things about this shoe.',
     images: [
-      'images/skele-toes-01-full.jpg',
-      'images/skele-toes-01-thumb.jpg'
+      '/assets/images/skele-toes-01-full.jpg',
+      '/assets/images/skele-toes-01-thumb.jpg'
     ],
     canPurchase: true,
     numberOnHand: 3,

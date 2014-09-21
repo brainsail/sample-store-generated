@@ -15,6 +15,7 @@ var gulp = require('gulp'),
   karmaCommonConf = require('./karma-common-conf.js'),
   karma = require('karma').server,
   open = require('gulp-open'),
+  plumber = require('gulp-plumber'),
   _ = require('lodash');
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -41,7 +42,8 @@ var filesets = {
   js: ['app/**/*.js', '!app/**/*-spec.js'],
   jsall: ['app/**/*.js', '!app/**/*-mock-data.js'],
   sass: ['app/**/*.scss'],
-  dev: 'dev/**'
+  dev: 'dev/**',
+  assets: 'app/**/*.+(jpg|png)'
 };
 
 /**
@@ -55,7 +57,7 @@ gulp.task('watch', function () {
   gulp.watch(filesets.templateCache, ['templateCache']);
 });
 
-gulp.task('dev:build', ['clean:dev', 'copy:js', 'templateCache', 'jade:index', 'sass', 'copy:vendor']);
+gulp.task('dev:build', ['clean:dev', 'copy:js', 'templateCache', 'jade:index', 'sass', 'copy:vendor', 'copy:assets']);
 
 gulp.task('clean:dev', function () {
   del.sync([filesets.dev]);
@@ -71,14 +73,21 @@ gulp.task('copy:js', function () {
     .pipe(gulp.dest(paths.dev));
 });
 
+gulp.task('copy:assets', function () {
+    return gulp.src(filesets.assets)
+        .pipe(gulp.dest(paths.dev));
+});
+
 gulp.task('jade:index', function () {
   return gulp.src('app/index.jade')
+    .pipe(plumber())
     .pipe(jade({pretty: true}))
     .pipe(gulp.dest('dev'));
 });
 
 gulp.task('sass', function () {
   return gulp.src('app/app.scss')
+    .pipe(plumber())
     .pipe(compass({
       project: __dirname,
       css: 'dev',
@@ -88,6 +97,7 @@ gulp.task('sass', function () {
 
 gulp.task('templateCache', function () {
   return gulp.src(filesets.templateCache)
+    .pipe(plumber())
     .pipe(jade({pretty: true}))
     .pipe(ngtemplates('sample-store-generated.tpls.js', {module: 'wc.tmpls', root: '/', standalone: true}))
     .pipe(gulp.dest(paths.dev));
