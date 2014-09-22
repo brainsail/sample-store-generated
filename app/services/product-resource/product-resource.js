@@ -2,22 +2,27 @@
 
 
   /* @ngInject */
-  function ProductResource($http){
-    var URL = '/api/v1/products';
+  function ProductResource(Restangular){
+    var ra = Restangular.withConfig(function (Configurer) {
+          Configurer.setBaseUrl('/api/v1');
+    });
+
+    var productResource = ra.all('products');
+
     function getProductList(){
-      return $http.get(URL);
+      return productResource.getList();
     }
 
     function addProduct(product){
-      return $http.post(URL, product);
+      return productResource.post(product);
     }
 
-    function removeProduct(){
-
+    function removeProduct(product){
+      return productResource.remove(product);
     }
 
-    function editProduct(){
-
+    function editProduct(product){
+      return productResofurce.remove(product);
     }
 
     //Public API
@@ -29,7 +34,7 @@
     };
   }
 
-  angular.module('wc.services.ProductResource', [])
+  angular.module('wc.services.ProductResource', ['restangular'])
     .factory('ProductResource', ProductResource);
 
 })();

@@ -1,37 +1,1 @@
-div.modal-header
-  button.close(ng-click="vm.cancel()") Close
-  h3.modal-title Add A Product  
-    div.modal-body
-      form.create-form(name="addProductForm" role="form", ng-submit="vm.addProduct(product)" novalidate)
-        div.form-group
-          h4 Product Name
-          input.form-control(placeholder="Name..." ng-model="vm.product.name" ng-minlength="3" required)
-        div.form-group
-          h4 Price
-          input.form-control(placeholder="$0.00" ng-pattern="^(([0-9]*)|(([0-9]*).([0-9]*)))$" ng-model="vm.product.price" required)
-        div.form-group
-          h4 Product Description
-          input.form-control(placeholder="Description..." ng-model="vm.product.description" required)
-        div.form-group
-          h4 Image URLs
-          input.form-control(placeholder="i.e. /images/thumb.jpg, etc." ng-model="vm.product.images")
-        div.input-group
-          div.btn-group.dropdown(is-open="status.isopen")
-            button.btn.btn-default.dropdown-toggle(type="button") Available for Purchase? &#9660
-            ul.dropdown-menu(role="menu")
-              li 
-                a Yes
-              li 
-                a No
-
-          //- h4 Is Available Now? 
-          //- select(ng-model="vm.product.canPurchase" required)
-          //-   option(ng-value="true") Yes
-          //-   option(ng-value="false") No
-        div.form-group
-          h4 Number On Hand
-          input.form-control(ng-model="vm.product.numberOnHand")
-
-    div.modal-footer
-      button.btn.btn-info.btn-lg(ng-disabled="addProductForm.$invalid" type="submit" ng-click="vm.addProduct()") Add Product
-      button.btn.btn-default.btn-lg.pull-right(type="button" ng-click="vm.cancel()") Cancel
+div.modal-header  button.close(ng-click="vm.cancel()") Close  h3.modal-title Add A Product      div.modal-body      form.create-form(name="addProductForm" role="form", ng-submit="vm.addProduct(product)" novalidate)                div.form-group          h4 Product Name          input.form-control(placeholder="Name..." ng-model="vm.product.name" ng-minlength="3" required)                div.form-group          h4 Price          input.form-control(placeholder="$0.00" ng-model="vm.product.price" required)                div.form-group          h4 Product Description          input.form-control(placeholder="Description..." ng-model="vm.product.description" required)                div.form-group          h4 Image URLs          input.form-control(placeholder="i.e. /images/thumb.jpg, etc." ng-model="vm.product.images")        div.form-group          h4 Is it available for purchase? {{vm.product.canPurchase}}          div.btn-group(data-toggle="buttons-radio")            label.btn.btn-primary Yes              input(type="radio" ng-model="vm.product.canPurchase" value="true")            label.btn.btn-primary No              input(type="radio" ng-model="vm.product.canPurchase" value="false")        div.form-group          h4 Number On Hand          input.form-control(ng-model="vm.product.numberOnHand")    div.modal-footer      button.btn.btn-info.btn-lg(ng-disabled="addProductForm.$invalid" type="submit" ng-click="vm.addProduct()") Add Product      button.btn.btn-default.btn-lg.pull-right(type="button" ng-click="vm.cancel()") Cancel

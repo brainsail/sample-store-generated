@@ -16,7 +16,7 @@ describe('wc.services.ProductResource', function () {
     it('should return a list of products', inject(function ($log, ProductResource) {
       ProductResource.get().then(
           function(resp){
-            expect(angular.isArray(resp.data)).to.be.true;
+            expect(angular.isArray(resp)).to.be.true;
           },
           function(err){
             $log.error(err);

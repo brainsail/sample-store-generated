@@ -8,7 +8,7 @@
     function refreshProducts(){
       return ProductResource.get().then(
         function(resp){
-          _products = resp.data;
+          _products = resp;
           return _products;
         },
         function(err){
@@ -21,8 +21,8 @@
     function addProduct(product) {
       return ProductResource.add(product).then(
         function(resp) {
-          _products.push(resp.data);
-          return resp.data;
+          _products.push(resp);
+          return resp;
         },
         function(err){
           $log.error(err);
