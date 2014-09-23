@@ -1,16 +1,10 @@
 (function () {
 
   /* @ngInject */
-  function ProductListCtrl($log, $modal, productModel, wcToastr) {
+  function ProductListCtrl($log, $scope, $modal, productModel, wcToastr) {
     var vm = this;
     vm.name = 'Products';
     vm.products = [];
-
-    productModel.refresh().then(
-      function (resp) {
-        vm.products = resp;
-      }
-    );
 
     vm.selectProduct = function (product) {
       productModel.select(product);
@@ -25,15 +19,17 @@
         templateUrl: '/views/product-add/product-add.html',
         controller: 'ProductAddCtrl as vm',
         size: 'lg'
-      }).result.then(
-        function () {
-          wcToastr.success('New Product Added!');
-        },
-        function () {
-          wcToastr.warn('Product Add Cancelled!');
-        }
-      );
+      });
     };
+
+    $scope.$watch(
+      function () {
+        return productModel.getProducts();
+      },
+      function (products) {
+        vm.products = products;
+      }
+    );
 
   }
 

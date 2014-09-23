@@ -12,5 +12,11 @@
         ProductResourceMockData.push(data);
         return [200, data, {}];
       });
+      $httpBackend.whenDELETE(/\/api\/v1\/products\/*/).respond(function (method, url, data) {
+        _.remove(ProductResourceMockData, function (product) { 
+            return product.id  === data.id;
+          });
+        return [200, data, {}];
+      });
   });
 })(); 

@@ -6,6 +6,11 @@
     vm.name = 'Product Detail';
     vm.product = productModel.getSelectedProduct();
 
+    vm.remove = function (product) {
+      productModel.remove(product);
+      $state.go('productList');
+    };
+
     vm.back = function () {
       $state.go('productList');
     };

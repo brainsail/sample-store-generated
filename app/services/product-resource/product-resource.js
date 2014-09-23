@@ -18,7 +18,7 @@
     }
 
     function removeProduct(product){
-      return productResource.remove(product);
+      return product.remove();
     }
 
     function editProduct(product){
